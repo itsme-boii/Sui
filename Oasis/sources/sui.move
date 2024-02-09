@@ -26,7 +26,8 @@ module Oasis::Oasis{
             // publicMint:bool,
             // preSale:bool,
             // multipleStakeholder:bool,
-            owner:address
+            owner:address,
+            number:u64
         }
 
 
@@ -80,6 +81,7 @@ module Oasis::Oasis{
             description:String,
             traitType:String,
             value:u64,
+            number:u64,
             // publicMint:bool,
             // preSale:bool,
             // multipleStakeholder:bool,
@@ -96,7 +98,9 @@ module Oasis::Oasis{
                 // publicMint:publicMint,
                 // preSale:preSale,
                 // multipleStakeholder:multipleStakeholder,
+                number:number,
                 owner:tx_context::sender(ctx)
+               
             };
             transfer::transfer<Nft>(nft,sender_address);
 
@@ -150,6 +154,14 @@ module Oasis::Oasis{
                 whitelistedAddress:whitelistedAddress
             };
             ofield::add(&mut nft.id,b"PreSale",preSale);
+        }
+
+        public fun make_vector(){
+
+
+            // write a function to get tge vectors nft in a vector store that can be called from front end
+            
+
         }
 
 
